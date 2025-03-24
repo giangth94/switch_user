@@ -44,9 +44,9 @@ module SwitchUser
         @controller.session[:original_user_scope_identifier] = user_identifier
       end
 
-      def remember_current_user(remember)
+      def remember_current_user(remember, scope = nil)
         if remember
-          self.original_user = current_user
+          self.original_user = current_user(scope)
         else
           clear_original_user
         end
